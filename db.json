@@ -1,0 +1,40 @@
+{
+  "characters": [
+    {
+      "id": "1",
+      "name": "Mr. Cute",
+      "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
+      "votes": 0
+    },
+    {
+      "id": "2",
+      "name": "Mx. Monkey",
+      "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
+      "votes": 0
+    },
+    {
+      "id": "3",
+      "name": "Ms. Zebra",
+      "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
+      "votes": 0
+    },
+    {
+      "id": "4",
+      "name": "Dr. Lion",
+      "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
+      "votes": 0
+    },
+    {
+      "id": "5",
+      "name": "Mme. Panda",
+      "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
+      "votes": 0
+    },
+    {
+      "id": "61f8",
+      "name": "Fast Charger 3000",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABI1BMVEX/1uL///8AAADMzMz/pLn/2eXKysrPz8//3OiFhYXR0dH/2+j/5m3oR3f8/Py+vr7/x9STk5P+obf19fXExMSDg4OcnJyxsbG4uLjp6enY2NiNjY3v7++ioqLnQ3QnJydfX1/fu8YxMTHtx9IVFBRsbGx6eno6OjoeHh5VVVXEpa66nKVmZmb/7XAcGxtGOz5GRkZdTlKTe4KBbHIwKCrmwcypjpbpUH0REBCjiZFPQkbRr7kmHyFwX2RPTk7y2mdqWF37l7DuZIr3iaVjWSqmlkmWiEApJRHizGAWEwmAdDY2MRdyZzDTv1rn0GPBrlJEPh3zqbzsc5WaKEtaEikiKini09fmMmtiJTfVXn/tfpxkAijTQm3wbJD0tcb/6u+xMFc5tvKOAAARDElEQVR4nO1diV/iSBbGCoEkCIicSQggt0fj2YqodKvTc+7Mru7hbm/bu///X7HvVSUxN+DMUHE232+6tZHuqY/36t1VSaUSJEiQIEGCBAkSJEiQIEGCBAkSJEiQIEGCBAkSJEiQIEGCBAkSJEiQIEGCBAkSJEiQIEGC/weIkpQTeS/id4SU2j85Oe/llnlr7i1+EuJ+nyBOUosWL/XOT0/3e9JalvXbQbwkJg570RQl9lFc778tirk9QvqNpjKEtU/fR1GU7I/i5C1RFHtTQpQNgNYGihFSlE6AW62p4kdx+YYoSqeEGBsU5SNQ1NClS/vATMP3ZeCb/WXMUiwgvidkd8PCUbgCijvAS2VvA4qT3nrX+XqgCDWbYRNY7ITo6RkhgvW+0lvaioR0Nl5QIWQWyBA3Ycl+W6FLyAK7GxfkYHNlHAw3BoTsBWwx1NGR422NNyNEaUa6ToKop7OA94nHTmWmQpyufbGvgdhz6p61xa58+ieCzxy63lYDWb8FNZXOHebDFuJH39KlMzJtut6mEnLzFtQUVj7Z8A",
+      "votes": 0
+    }
+  ]
+}

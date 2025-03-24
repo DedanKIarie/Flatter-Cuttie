@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <title>Flatacuties</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <h1>Flatacuties</h1>
+    </div>
+
+    <div id="character-bar">
+      <!-- show characters names here -->
+    </div>
+
+    <div class="characterInfo">
+      <div id="detailed-info">
+        <p id="name">Character's Name</p>
+        <img
+          id="image"
+          src="assets/dummy.gif"
+          alt="Character's Name"
+        /><!-- display character image here -->
+        <h4>Total Votes: <span id="vote-count">Character's Votes</span></h4>
+        <form id="votes-form">
+          <input type="text" placeholder="Enter Votes" id="votes" name="votes" />
+          <input type="submit" value="Add Votes" />
+        </form>
+        <button id="reset-btn">Reset Votes</button>
+      </div>
+
+  
+        <h4>Add New Character</h4>
+        <form id="character-form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="character-name" name="name" />
+          </div>
+          <div>
+            <label for="image-url">Image URL</label>
+            <input type="text" id="image-url" name="image-url" />
+          </div>
+          <input type="submit" value="Add Character" />
+        </form> 
+
+    </div>
+    <script src="src/index.js"></script>
+
+     <script>
+      async function distribute() {
+        let response = await fetch("http://localhost:3000/characters");
+        let characters = await response.json();
+
+        let characterBar = document.getElementById("character-bar");
+
+        characters.forEach(function (character) {
+          let button = document.createElement("button");
+          button.textContent = character.name;
+          button.addEventListener("click", function () {
+            showCharacterDetails(character);
+          });
+          characterBar.appendChild(button);
+        });
+
+        console.log(characters);
+      }
+       let currentCharacter = null;
+  function showCharacterDetails(character) {
+    currentCharacter = character; 
+    document.getElementById("name").textContent = character.name;
+    document.getElementById("image").src = character.image;
+    document.getElementById("vote-count").textContent = character.votes;
+    document.getElementById("image").alt = character.name;
+}
+
+       document.getElementById("votes-form").addEventListener("submit", async function (event) {
+    event.preventDefault()
+
+    if (currentCharacter) {
+      let votesInput = document.getElementById("votes");
+      let newVotes = parseInt(votesInput.value, 10);
+
+      if (!isNaN(newVotes)) {
+        let updatedVotes = currentCharacter.votes + newVotes;
+
+   
+        let response = await fetch(`http://localhost:3000/characters/${currentCharacter.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            votes: updatedVotes
+          })
+        });
+
+        if (response.ok) {
+          currentCharacter.votes = updatedVotes; 
+          document.getElementById("vote-count").textContent = currentCharacter.votes;
+          votesInput.value = "";
+        } 
+      }
+    }
+  });
+        document.getElementById("reset-btn").addEventListener("click", function () {
+        event.preventDefault()
+        if (currentCharacter) {
+          currentCharacter.votes = 0;
+          document.getElementById("vote-count").textContent = 0;
+          fetch(`http://localhost:3000/characters/${currentCharacter.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ votes: 0 }),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log("Votes reset:", data))
+            .catch((error) => console.log("Error:", error));
+        }
+      });
+
+      distribute();
+
+         document.getElementById("character-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    let nameInput = document.getElementById("character-name");
+    let imageInput = document.getElementById("image-url");
+
+    let name = nameInput.value.trim();
+    let image = imageInput.value.trim();
+
+    if (name && image) {
+        let newCharacter = {
+            name: name,
+            image: image,
+            votes: 0
+        };
+
+        let response = await fetch("http://localhost:3000/characters", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newCharacter)
+        });
+
+        if (response.ok) {
+            let character = await response.json();
+            addCharacterToBar(character);
+            showCharacterDetails(character);
+            nameInput.value = "";
+            imageInput.value = "";
+        }
+    }
+});
+
+
+function addCharacterToBar(character) {
+    let button = document.createElement("button");
+    button.textContent = character.name;
+    button.addEventListener("click", function () {
+        showCharacterDetails(character);
+    });
+    document.getElementById("character-bar").appendChild(button);
+}
+    </script>
+  </body>
+</html>
