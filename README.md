@@ -58,6 +58,10 @@ Refer to the provided example GIF to understand how the app should function.
   ```sh
   POST /characters
   ```
+-Deploy pages 
+```sh
+https://dedankiarie.github.io/Flatter-Cuttie/
+```
 
 ## License
 This project is licensed under the **MIT License**. See the `LICENSE` file for details.
